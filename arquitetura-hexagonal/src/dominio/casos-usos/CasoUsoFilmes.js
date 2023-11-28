@@ -2,12 +2,13 @@ import FilmesRepository from "../../infra/repositorios/FilmesRepository";
 
 class CasoUsoFilmes {
 
-    constructor() {
+    constructor(filmesRepository) {
+        this.filmesRepository = filmesRepository;
     }
 
     async buscarFilmes(ator) {
         try {
-            return FilmesRepository.buscarFilmes(ator);
+            return this.filmesRepository.buscarFilmes(ator);
         } catch (erro) {
             console.error('Erro ao buscar filmes:', erro);
             return [];
